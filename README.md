@@ -1,6 +1,9 @@
 # discord_voice_detection
 snippet for voice detection in discord
 
+# requierements
+* py-cord[voice]
+  
 # What is it ?
 
 A code snippet that took me too much time to admit.
