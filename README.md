@@ -25,6 +25,8 @@ when done
 * We then check if the audio data is present 
 * Then every 0.5 sec we check the size of the audio data, if it increases then user is speaking, if it stays the same then user stopped speaking
 * When user stops speaking we dump the data to a file and reset the audio in the sink to start fresh
+* YOU DONT NEED /stop ! recording is automatically dumped when user stops speaking that is the main reason for creating this code
+* /stop stops the whole process
 
 # Technical stuff 
 * retrieve data from the sink : for user_id, audio_data in vc.sink.audio_data.items()
