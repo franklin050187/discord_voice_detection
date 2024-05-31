@@ -19,12 +19,18 @@ when done
 /leave
 
 # How it works ?
-Bot will start a recording on the voice channel (/join & /start)
-Recording goes to a sink
-The sink contains user and audio data
-We then check if the audio data is present 
-Then every 0.5 sec we check the size of the audio data, if it increases then user is speaking, if it stays the same then user stopped speaking
-When user stops speaking we dump the data to a file and reset the audio in the sink to start fresh
+* Bot will start a recording on the voice channel (/join & /start)
+* Recording goes to a sink
+* The sink contains user and audio data
+* We then check if the audio data is present 
+* Then every 0.5 sec we check the size of the audio data, if it increases then user is speaking, if it stays the same then user stopped speaking
+* When user stops speaking we dump the data to a file and reset the audio in the sink to start fresh
+
+# Technical stuff 
+* retrieve data from the sink : for user_id, audio_data in vc.sink.audio_data.items()
+* get audio size : curr_file_size = audio_data.file.tell()
+* extract the data audio_data.file.seek(0) & data_to_write = audio_data.file.read()
+* reset data in the sink : audio_data.file = io.BytesIO()
 
 # Why ?
 First step towards voice assistant discord.
